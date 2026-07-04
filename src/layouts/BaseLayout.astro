@@ -61,10 +61,16 @@ const canonical = new URL(Astro.url.pathname, Astro.site);
       });
     </script>
 
-    <!-- Cloudflare Web Analytics: privacy-friendly pageview counts. The beacon
-         hooks the History API, so Astro's client-side (View Transitions)
-         navigations are counted automatically. -->
-    <script is:inline defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "2b35ac87b86e450688f557ccf83ae688"}'></script>
+    <!-- GoatCounter analytics. count.js auto-counts the initial pageview; for
+         Astro View Transitions we count each client-side navigation via
+         astro:after-swap (fires on nav, not initial load) — so no under- or
+         double-counting. -->
+    <script is:inline data-goatcounter="https://dlqs.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
+    <script is:inline>
+      document.addEventListener('astro:after-swap', () => {
+        window.goatcounter?.count?.({ path: location.pathname + location.search });
+      });
+    </script>
 
     <ClientRouter />
   </head>
