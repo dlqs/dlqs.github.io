@@ -8,6 +8,12 @@ const email = 'donaldleeqs[at]gmail.com';
     <a href="https://github.com/dlqs">GitHub</a>
     <span class="email">{email}</span>
   </nav>
+  <p class="credit">
+    Site design inspired by
+    <a href="https://emilkowal.ski/" target="_blank" rel="noopener noreferrer"
+      >Emil Kowalski</a
+    >.
+  </p>
 </footer>
 
 <style>
@@ -28,10 +34,24 @@ const email = 'donaldleeqs[at]gmail.com';
   .email {
     user-select: all;
   }
+  .credit {
+    margin: 1rem 0 0;
+    font-size: 0.78rem;
+    color: var(--fg-faint);
+  }
+  .credit a {
+    color: var(--fg-muted);
+    text-decoration: underline;
+    text-decoration-color: var(--border);
+    text-underline-offset: 0.15em;
+  }
   @media (hover: hover) and (pointer: fine) {
     .links a:hover {
       color: var(--fg);
       text-decoration: none;
+    }
+    .credit a:hover {
+      color: var(--fg);
     }
   }
 </style>
