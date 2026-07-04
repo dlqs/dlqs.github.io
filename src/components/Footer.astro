@@ -1,14 +1,12 @@
 ---
-const links = [
-  { label: 'GitHub', href: 'https://github.com/dlqs' },
-  { label: 'Twitter', href: 'https://twitter.com/' },
-  { label: 'Email', href: 'mailto:hello@dlqs.xyz' },
-];
+// Email is rendered as obfuscated plain text (no mailto) to avoid scrapers.
+const email = 'donaldleeqs[at]gmail.com';
 ---
 
 <footer class="footer">
-  <nav class="links" aria-label="Social">
-    {links.map((l) => <a href={l.href}>{l.label}</a>)}
+  <nav class="links" aria-label="Links">
+    <a href="https://github.com/dlqs">GitHub</a>
+    <span class="email">{email}</span>
   </nav>
 </footer>
 
@@ -23,8 +21,12 @@ const links = [
     gap: 1.5rem;
     font-size: 0.9rem;
   }
-  .links a {
+  .links a,
+  .email {
     color: var(--fg-muted);
+  }
+  .email {
+    user-select: all;
   }
   @media (hover: hover) and (pointer: fine) {
     .links a:hover {
