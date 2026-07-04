@@ -1,0 +1,35 @@
+---
+const links = [
+  { label: 'GitHub', href: 'https://github.com/dlqs' },
+  { label: 'Twitter', href: 'https://twitter.com/' },
+  { label: 'Email', href: 'mailto:hello@dlqs.xyz' },
+];
+---
+
+<footer class="footer">
+  <nav class="links" aria-label="Social">
+    {links.map((l) => <a href={l.href}>{l.label}</a>)}
+  </nav>
+</footer>
+
+<style>
+  .footer {
+    margin-top: 5rem;
+    padding-top: 2rem;
+    border-top: 1px solid var(--border);
+  }
+  .links {
+    display: flex;
+    gap: 1.5rem;
+    font-size: 0.9rem;
+  }
+  .links a {
+    color: var(--fg-muted);
+  }
+  @media (hover: hover) and (pointer: fine) {
+    .links a:hover {
+      color: var(--fg);
+      text-decoration: none;
+    }
+  }
+</style>

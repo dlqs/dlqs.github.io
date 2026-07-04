@@ -1,0 +1,90 @@
+---
+import type { CollectionEntry } from 'astro:content';
+
+interface Props {
+  projects: CollectionEntry<'projects'>[];
+}
+const { projects } = Astro.props;
+---
+
+<ul class="projects">
+  {
+    projects.map((p) => {
+      const { title, description, link } = p.data;
+      const inner = (
+        <>
+          <span class="title">
+            {title}
+            {link && (
+              <svg class="arrow" width="11" height="11" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <path d="M7 17 17 7M9 7h8v8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+            )}
+          </span>
+          <span class="desc">{description}</span>
+        </>
+      );
+      return (
+        <li>
+          {link ? (
+            <a href={link} target="_blank" rel="noopener noreferrer" class="row">
+              {inner}
+            </a>
+          ) : (
+            <div class="row row--static">{inner}</div>
+          )}
+        </li>
+      );
+    })
+  }
+</ul>
+
+<style>
+  .projects {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  li + li {
+    margin-top: 1.1rem;
+  }
+  .row {
+    display: block;
+    color: inherit;
+  }
+  .title {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.3em;
+    font-weight: 500;
+    color: var(--fg);
+    letter-spacing: -0.015em;
+  }
+  .desc {
+    display: block;
+    color: var(--fg-muted);
+    font-size: 0.95rem;
+    margin-top: 0.1rem;
+  }
+  .arrow {
+    color: var(--fg-faint);
+    transition: transform 200ms var(--ease-out), color 200ms var(--ease-out);
+  }
+  @media (hover: hover) and (pointer: fine) {
+    a.row:hover {
+      text-decoration: none;
+    }
+    a.row:hover .title {
+      color: var(--accent);
+    }
+    a.row:hover .arrow {
+      color: var(--accent);
+      transform: translate(2px, -2px);
+    }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    a.row:hover .arrow {
+      transform: none;
+    }
+  }
+</style>

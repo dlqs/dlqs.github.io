@@ -1,0 +1,110 @@
+---
+import '../styles/global.css';
+import { ClientRouter } from 'astro:transitions';
+import ThemeToggle from '../components/ThemeToggle.astro';
+import Footer from '../components/Footer.astro';
+
+interface Props {
+  title?: string;
+  description?: string;
+  /** Homepage hides the small "back" link (the hero already shows the name). */
+  isHome?: boolean;
+}
+
+const {
+  title,
+  description = 'Donald Lee — software engineer.',
+  isHome = false,
+} = Astro.props;
+
+const siteName = 'Donald Lee';
+const fullTitle = title ? `${title} — ${siteName}` : siteName;
+const canonical = new URL(Astro.url.pathname, Astro.site);
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="sitemap" href="/sitemap-index.xml" />
+    <link rel="canonical" href={canonical} />
+
+    <title>{fullTitle}</title>
+    <meta name="description" content={description} />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={fullTitle} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta name="twitter:card" content="summary_large_image" />
+
+    <!-- No-flash theme init: set the theme before first paint. is:inline keeps
+         it out of the bundler so it runs immediately, ahead of the body. -->
+    <script is:inline>
+      (() => {
+        const stored = localStorage.getItem('theme');
+        const theme =
+          stored ??
+          (matchMedia('(prefers-color-scheme: dark)').matches
+            ? 'dark'
+            : 'light');
+        document.documentElement.dataset.theme = theme;
+      })();
+      // Re-apply after a View Transitions swap (the <html> attr survives, but
+      // be defensive in case a future head swap resets it).
+      document.addEventListener('astro:after-swap', () => {
+        const stored = localStorage.getItem('theme');
+        if (stored) document.documentElement.dataset.theme = stored;
+      });
+    </script>
+
+    <ClientRouter />
+  </head>
+
+  <body>
+    <div class="wrap">
+      <header class="topbar">
+        {
+          isHome ? (
+            <span aria-hidden="true" />
+          ) : (
+            <a href="/" class="home-link">
+              {siteName}
+            </a>
+          )
+        }
+        <ThemeToggle />
+      </header>
+
+      <main>
+        <slot />
+      </main>
+
+      <Footer />
+    </div>
+
+    <style>
+      .topbar {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 3.5rem;
+        min-height: 1.5rem;
+      }
+      .home-link {
+        font-weight: 500;
+        letter-spacing: -0.02em;
+        color: var(--fg-muted);
+      }
+      @media (hover: hover) and (pointer: fine) {
+        .home-link:hover {
+          color: var(--fg);
+          text-decoration: none;
+        }
+      }
+    </style>
+  </body>
+</html>

@@ -1,0 +1,108 @@
+---
+import BaseLayout from './BaseLayout.astro';
+import type { CollectionEntry } from 'astro:content';
+
+interface Props {
+  post: CollectionEntry<'writing'>;
+}
+const { post } = Astro.props;
+const { title, description, pubDate, updatedDate } = post.data;
+
+const fmt = (d: Date) =>
+  d.toLocaleDateString('en-US', {
+    year: 'numeric',
+    month: 'long',
+    day: 'numeric',
+    timeZone: 'UTC',
+  });
+---
+
+<BaseLayout title={title} description={description}>
+  <article class="post rise">
+    <header class="post-head">
+      <h1>{title}</h1>
+      <p class="meta">
+        <time datetime={pubDate.toISOString()}>{fmt(pubDate)}</time>
+        {updatedDate && <span>· updated {fmt(updatedDate)}</span>}
+      </p>
+    </header>
+
+    <div class="prose">
+      <slot />
+    </div>
+
+    <p class="back">
+      <a href="/">← Back home</a>
+    </p>
+  </article>
+
+  <style>
+    .post-head {
+      margin-bottom: 2.5rem;
+    }
+    h1 {
+      font-size: 1.7rem;
+      margin-bottom: 0.4rem;
+    }
+    .meta {
+      color: var(--fg-faint);
+      font-size: 0.9rem;
+      margin: 0;
+    }
+
+    /* Long-form typography */
+    .prose :global(h2) {
+      font-size: 1.25rem;
+      margin: 2.4rem 0 0.8rem;
+    }
+    .prose :global(h3) {
+      font-size: 1.05rem;
+      margin: 1.8rem 0 0.6rem;
+    }
+    .prose :global(p),
+    .prose :global(ul),
+    .prose :global(ol) {
+      margin: 0 0 1.15em;
+    }
+    .prose :global(ul),
+    .prose :global(ol) {
+      padding-left: 1.3em;
+    }
+    .prose :global(li) {
+      margin-bottom: 0.35em;
+    }
+    .prose :global(li > ul),
+    .prose :global(li > ol) {
+      margin-top: 0.35em;
+    }
+    .prose :global(a) {
+      color: var(--accent);
+      text-decoration: underline;
+      text-decoration-color: color-mix(in srgb, var(--accent) 35%, transparent);
+    }
+    .prose :global(blockquote) {
+      margin: 1.5rem 0;
+      padding-left: 1.1rem;
+      border-left: 2px solid var(--border);
+      color: var(--fg-muted);
+    }
+    .prose :global(img) {
+      max-width: 100%;
+      height: auto;
+      border-radius: 10px;
+    }
+    .prose :global(del) {
+      color: var(--fg-faint);
+    }
+
+    .back {
+      margin-top: 3.5rem;
+      padding-top: 2rem;
+      border-top: 1px solid var(--border);
+      font-size: 0.9rem;
+    }
+    .back a {
+      color: var(--fg-muted);
+    }
+  </style>
+</BaseLayout>

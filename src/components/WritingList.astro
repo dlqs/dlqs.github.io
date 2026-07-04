@@ -1,0 +1,61 @@
+---
+import type { CollectionEntry } from 'astro:content';
+
+interface Props {
+  posts: CollectionEntry<'writing'>[];
+}
+const { posts } = Astro.props;
+
+const fmtYear = (d: Date) => d.getUTCFullYear().toString();
+---
+
+<ul class="writing">
+  {
+    posts.map((post) => (
+      <li>
+        <a href={`/writing/${post.id}/`} class="row">
+          <span class="title">{post.data.title}</span>
+          <span class="year">{fmtYear(post.data.pubDate)}</span>
+        </a>
+      </li>
+    ))
+  }
+</ul>
+
+<style>
+  .writing {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  li + li {
+    margin-top: 0.35rem;
+  }
+  .row {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 1rem;
+    padding: 0.35rem 0;
+    color: inherit;
+  }
+  .title {
+    color: var(--fg);
+    letter-spacing: -0.012em;
+    transition: color 160ms var(--ease-out);
+  }
+  .year {
+    color: var(--fg-faint);
+    font-size: 0.88rem;
+    font-variant-numeric: tabular-nums;
+    flex-shrink: 0;
+  }
+  @media (hover: hover) and (pointer: fine) {
+    .row:hover {
+      text-decoration: none;
+    }
+    .row:hover .title {
+      color: var(--accent);
+    }
+  }
+</style>
