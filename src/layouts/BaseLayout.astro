@@ -61,6 +61,11 @@ const canonical = new URL(Astro.url.pathname, Astro.site);
       });
     </script>
 
+    <!-- Cloudflare Web Analytics: privacy-friendly pageview counts. The beacon
+         hooks the History API, so Astro's client-side (View Transitions)
+         navigations are counted automatically. -->
+    <script is:inline defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "f28f827432b5433a9b9250d71cf2d1ec"}'></script>
+
     <ClientRouter />
   </head>
 
