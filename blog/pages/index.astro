@@ -13,7 +13,7 @@ const posts = (await getCollection('blog', ({ data }) => !data.draft))
     <p>Donald Lee</p>
   </section>
   <section class="block rise" style="--rise-delay: 80ms" aria-label="Posts">
-    {posts.length ? <WritingList posts={posts} basePath="" /> : <p class="empty">No posts yet.</p>}
+    {posts.length ? <WritingList posts={posts} basePath="" showFullDate /> : <p class="empty">No posts yet.</p>}
   </section>
 </BaseLayout>
 

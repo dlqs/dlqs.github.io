@@ -4,10 +4,15 @@ import type { CollectionEntry } from 'astro:content';
 interface Props {
   posts: CollectionEntry<'writing' | 'blog'>[];
   basePath?: string;
+  showFullDate?: boolean;
 }
-const { posts, basePath = '/writing' } = Astro.props;
+const { posts, basePath = '/writing', showFullDate = false } = Astro.props;
 
-const fmtYear = (d: Date) => d.getUTCFullYear().toString();
+const dateFormatter = new Intl.DateTimeFormat('en-US', {
+  year: 'numeric',
+  ...(showFullDate ? { month: 'short' as const, day: 'numeric' as const } : {}),
+  timeZone: 'UTC',
+});
 ---
 
 <ul class="writing">
@@ -16,7 +21,9 @@ const fmtYear = (d: Date) => d.getUTCFullYear().toString();
       <li>
         <a href={`${basePath}/${post.id}/`} class="row">
           <span class="title">{post.data.title}</span>
-          <span class="year">{fmtYear(post.data.pubDate)}</span>
+          <time class="date" datetime={post.data.pubDate.toISOString().slice(0, 10)}>
+            {dateFormatter.format(post.data.pubDate)}
+          </time>
         </a>
       </li>
     ))
@@ -45,7 +52,7 @@ const fmtYear = (d: Date) => d.getUTCFullYear().toString();
     letter-spacing: -0.012em;
     transition: color 160ms var(--ease-out);
   }
-  .year {
+  .date {
     color: var(--fg-faint);
     font-size: 0.88rem;
     font-variant-numeric: tabular-nums;
