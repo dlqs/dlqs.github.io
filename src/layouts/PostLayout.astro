@@ -3,7 +3,7 @@ import BaseLayout from './BaseLayout.astro';
 import type { CollectionEntry } from 'astro:content';
 
 interface Props {
-  post: CollectionEntry<'writing'>;
+  post: CollectionEntry<'writing' | 'blog'>;
 }
 const { post } = Astro.props;
 const { title, description, pubDate, updatedDate } = post.data;
@@ -32,7 +32,7 @@ const fmt = (d: Date) =>
     </div>
 
     <p class="back">
-      <a href="/">← Back home</a>
+      <a href="/">{post.collection === 'blog' ? '← Back to blog' : '← Back home'}</a>
     </p>
   </article>
 

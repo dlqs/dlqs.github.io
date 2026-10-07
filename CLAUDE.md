@@ -36,6 +36,9 @@ projects.
   `/writing/<slug>/`. Set `draft: true` to hide from the homepage.
 - **Projects**: add `src/content/projects/<slug>.md`. Frontmatter: `title`,
   `description` (required), `link?` (external URL), `order` (lower sorts first).
+- **Blog**: add `src/content/blog/<slug>.md` with the same frontmatter as Writing.
+  Separate site at `blog.dlqs.xyz`; blog posts and links are excluded from the
+  homepage. See `BLOG.md` for authoring and deployment setup.
 
 Schemas: `src/content.config.ts`.
 
@@ -43,6 +46,7 @@ Schemas: `src/content.config.ts`.
 
 - `src/pages/index.astro` — homepage: intro + Projects + Writing.
 - `src/pages/writing/[...slug].astro` — article pages.
+- `blog/pages/` — blog index and articles, sharing the main site's layouts.
 - `src/layouts/BaseLayout.astro` — html shell, no-flash theme init, `<ClientRouter>`
   (view transitions), header + footer.
 - `src/layouts/PostLayout.astro` — long-form article typography.
@@ -55,3 +59,7 @@ Push to `master` → `.github/workflows/deploy.yml` builds and deploys to Pages.
 **One-time setup (manual):** GitHub → Settings → Pages → Source = **GitHub Actions**
 (was "Deploy from branch" under Jekyll). Custom domain `dlqs.xyz` is kept via
 `public/CNAME` (copied into `dist/`).
+
+The blog job builds with `npm run build:blog` into `dist-blog/` and publishes to
+`dlqs/blog` using the `BLOG_DEPLOY_KEY` repository secret. That repository serves
+`blog.dlqs.xyz` through GitHub Pages. See `BLOG.md` for one-time setup.

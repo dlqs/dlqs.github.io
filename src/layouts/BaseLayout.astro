@@ -18,6 +18,7 @@ const {
 } = Astro.props;
 
 const siteName = 'Donald Lee';
+const homeLabel = Astro.site?.hostname === 'blog.dlqs.xyz' ? 'Blog' : siteName;
 const fullTitle = title ? `${title} — ${siteName}` : siteName;
 const canonical = new URL(Astro.url.pathname, Astro.site);
 ---
@@ -83,7 +84,7 @@ const canonical = new URL(Astro.url.pathname, Astro.site);
             <span aria-hidden="true" />
           ) : (
             <a href="/" class="home-link">
-              {siteName}
+              {homeLabel}
             </a>
           )
         }

@@ -2,9 +2,10 @@
 import type { CollectionEntry } from 'astro:content';
 
 interface Props {
-  posts: CollectionEntry<'writing'>[];
+  posts: CollectionEntry<'writing' | 'blog'>[];
+  basePath?: string;
 }
-const { posts } = Astro.props;
+const { posts, basePath = '/writing' } = Astro.props;
 
 const fmtYear = (d: Date) => d.getUTCFullYear().toString();
 ---
@@ -13,7 +14,7 @@ const fmtYear = (d: Date) => d.getUTCFullYear().toString();
   {
     posts.map((post) => (
       <li>
-        <a href={`/writing/${post.id}/`} class="row">
+        <a href={`${basePath}/${post.id}/`} class="row">
           <span class="title">{post.data.title}</span>
           <span class="year">{fmtYear(post.data.pubDate)}</span>
         </a>
