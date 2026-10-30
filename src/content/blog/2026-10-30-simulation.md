@@ -7,16 +7,16 @@ draft: false
 
 The most convincing argument I've heard in favor of theism so far is the [Simulation Argument](https://simulation-argument.com/simulation/). 
 
-First, we need to talk about _ancestor simulations_. An ancestor simulation is us, but from the perspective of the future: to our faraway descendants, we will be their ancestors, and as we are today interested in how the cavemen lived, so too our descendants will be interested in how _we_ lived.
+But first, we need to talk about _ancestor simulations_. Simply put, an ancestor simulation is _us_, but in the future! To our faraway descendants, we will be their ancestors, and just like how we today are interested in how the cavemen lived, so too will our descendants will be interested in how _we_ lived.
 
-So the argument goes roughly something like this:
-1. Future civilizations _can_ run many, many ancestor simulations.
-2. Future civilizations _will_ run many, many ancestor simulations.
+A key property of these ancestor simulations is that they are actually legitimate conscious experiences - the very same kind of consciousness you are experiencing right now - and not some watered down, game version. The real stuff. This means that we need to believe that consciousness can exist on things other than biological brains. Like silicon chips, for example. (This is called subtrate independence, the idea that experiences like consciousness can exist independently from their physical forms. Numbers, for instance. But not everyone buys this!)
+
+Okay, with that, the Simulation Argument goes something like this:
+1. Future civilizations _can_ run many ancestor simulations.
+2. Future civilizations _will_ run many ancestor simulations.
 3. Therefore, it is likely that we are currently in an ancestor simulation.
 
-If future humans do become technologically advanced enough to run such simulations, perhaps they do so many times, simulating many universes (perhaps to investigate different timelines?), then it's possible that the number of simulated consciousnesses is in fact several orders of magnitude larger than biological ones. And so we're probably in one right now! 
-
-(This actually requires that accepting something called "substrate independence", meaning that our consciousness can be faithfully run on things other than biological brains, but this is kinda beyond my understanding.)
+So: if our descendants become technologically advanced enough to run such simulations, and they in fact do so, many times, simulating _entire universes_ over and over again, then the number of simulated consciousnesses would likely be several orders of magnitude higher than biological ones. And so we're probably in one right now! 
 
 Okay, so there are several parts of this argument that can be contested. 
 
