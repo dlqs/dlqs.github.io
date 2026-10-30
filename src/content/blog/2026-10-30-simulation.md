@@ -9,9 +9,9 @@ The most convincing argument I've heard in favor of theism so far is the [Simula
 
 But first, we need to talk about _ancestor simulations_. Simply put, an ancestor simulation is _us_, but in the future! To our faraway descendants, we will be their ancestors, and just like how we today are interested in how the cavemen lived, so too will our descendants will be interested in how _we_ lived.
 
-A key property of these ancestor simulations is that they are actually legitimate conscious experiences - the very same kind of consciousness you are experiencing right now - and not some watered down, game version. The real stuff. This means that we need to believe that consciousness can exist on things other than biological brains. Perhaps silicon chips? 
+A key property of these ancestor simulations is that they are actually legitimate conscious experiences - the very same kind of consciousness you are experiencing right now - and not some watered down video game version. The real stuff. This means that we need to believe that consciousness can exist on things other than biological brains. Perhaps silicon chips? 
 
-(This is called subtrate independence, the idea that experiences like consciousness can exist independently of their physical forms. Numbers, for instance. But not everyone buys this!)
+(This is called substrate independence, the idea that experiences like consciousness can exist independently of their physical forms. Numbers, for instance. But not everyone buys this!)
 
 Okay, with that, the Simulation Argument goes something like this:
 1. Future civilizations _can_ run many ancestor simulations.
@@ -22,7 +22,7 @@ So: if our descendants become technologically advanced enough to run such simula
 
 Okay, so there are several parts of this argument that can be contested. 
 
-(1) may not come true for several reasons: perhaps all civilizations may hit technological barrier eventually. Perhaps we will always hit a nuclear/AI world ending event that always sets us back to square one. Perhaps it's just too difficult!
+(1) may not come true for several reasons: perhaps all civilizations may hit technological barrier eventually. Perhaps we will always hit civilization ending nuclear war, or AI catastrophe, that sets us back to square one. Perhaps it's just too difficult!
 
 As for (2): perhaps future humans may find it evil to run ancestor simulations, which, after all, are supposedly so real! Or maybe they're just not interested enough to find out how we lived.
 
