@@ -1,6 +1,6 @@
 ---
 title: "What makes a good bachata lesson?"
-pubDate: 2026-11-25
+pubDate: 2026-11-26
 description: ''
 draft: false
 ---
