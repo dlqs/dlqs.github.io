@@ -20,4 +20,4 @@ Now the bad:
 Here's a laundry list of other little things to note:
 - Space: sufficient space for the number of students
 - Air conditioning: small rooms get hot quickly when you stuff them full of people moving around
-- Familiar songs: really useful for learning since the music doesn't change
+- Familiar songs: generally useful for learning since the music doesn't change
