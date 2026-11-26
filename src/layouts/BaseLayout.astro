@@ -30,6 +30,14 @@ const canonical = new URL(Astro.url.pathname, Astro.site);
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="sitemap" href="/sitemap-index.xml" />
     <link rel="canonical" href={canonical} />
+    {Astro.site?.hostname === 'blog.dlqs.xyz' && (
+      <link
+        rel="alternate"
+        type="application/rss+xml"
+        title="Donald Lee’s Blog"
+        href={new URL('/rss.xml', Astro.site)}
+      />
+    )}
 
     <title>{fullTitle}</title>
     <meta name="description" content={description} />

@@ -33,6 +33,12 @@ npm run preview:blog  # Preview the blog build
 
 Both sites share `src/styles/global.css`, layouts, the theme toggle, and footer.
 
+The RSS (Really Simple Syndication) feed is generated at
+`https://blog.dlqs.xyz/rss.xml` on each blog build. It includes published post
+titles, dates, descriptions when provided, and links, newest first. Drafts are
+excluded. The blog footer links to the feed, and each blog page includes feed
+discovery metadata for feed readers.
+
 ## Deployment setup
 
 The blog deployment publishes the generated site to the `main` branch of
