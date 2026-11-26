@@ -1,7 +1,8 @@
 # Blog
 
 Add Markdown posts to `src/content/blog/`. Copy `_template.md` to a new file,
-choose a filename such as `first-post.md`, and update the frontmatter:
+use the publication date and hyphenated title for the filename, such as
+`2026-10-07-first-post.md`, and update the frontmatter:
 
 ```markdown
 ---
@@ -18,8 +19,8 @@ Write the post here using Markdown.
 Omit `draft` or set it to `false` to publish. Draft posts are excluded from both
 the blog index and generated article pages.
 
-The filename sets the URL: `first-post.md` appears at
-`https://blog.dlqs.xyz/first-post/`. Posts appear newest first. Blog posts are
+The filename sets the URL: `2026-10-07-first-post.md` appears at
+`https://blog.dlqs.xyz/2026-10-07-first-post/`. Posts appear newest first. Blog posts are
 separate from the homepage's Writing collection; the homepage has no blog link.
 
 Commit and push posts to `master` to publish through GitHub Actions. Local files
